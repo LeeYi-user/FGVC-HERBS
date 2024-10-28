@@ -18,6 +18,7 @@ import tqdm
 
 from utils.config_utils import load_yaml
 from vis_utils import ImgLoader
+from models.pim_module.pim_module_eval import PluginMoodel
 
 def build_model(pretrainewd_path: str,
                 img_size: int, 
@@ -28,7 +29,6 @@ def build_model(pretrainewd_path: str,
                 use_selection: bool = True,
                 use_combiner: bool = True, 
                 comb_proj_size: int = None):
-    from models.pim_module.pim_module_eval.py import PluginMoodel
 
     model = \
         PluginMoodel(img_size = img_size,
