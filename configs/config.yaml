@@ -2,7 +2,7 @@ project_name: FGVC-HERBS
 notes: 'no inverse'
 exp_name: basline
 use_wandb: True
-wandb_entity: poyung
+wandb_entity:
 train_root: ./CUB200-2011/train/
 val_root: ./CUB200-2011/test/
 data_size: 384
