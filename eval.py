@@ -1,12 +1,13 @@
+import os
+from typing import Union
+
+import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from typing import Union
-import pandas as pd
-import os
 from sklearn.metrics import confusion_matrix
-import matplotlib.pyplot as plt
 
 
 def suppression(target: torch.Tensor, threshold: torch.Tensor, temperature: float = 2):

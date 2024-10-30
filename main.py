@@ -1,17 +1,18 @@
+import contextlib
+import copy
+import warnings
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import contextlib
 import wandb
-import warnings
-import copy
 
-from models.builder import MODEL_GETTER
 from data.dataset import build_loader
+from eval import cal_train_metrics, evaluate, suppression
+from models.builder import MODEL_GETTER
+from utils.config_utils import build_record_folder, get_args, load_yaml
 from utils.costom_logger import timeLogger
-from utils.config_utils import load_yaml, build_record_folder, get_args
-from utils.lr_schedule import cosine_decay, adjust_lr, get_lr
-from eval import evaluate, cal_train_metrics, suppression
+from utils.lr_schedule import adjust_lr, cosine_decay, get_lr
 
 warnings.simplefilter("ignore")
 
