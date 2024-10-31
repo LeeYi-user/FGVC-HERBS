@@ -23,6 +23,7 @@ from models.pim_module.pim_module_eval import PluginMoodel
 from utils.config_utils import load_yaml
 from vis_utils import ImgLoader
 
+import shutil
 
 def build_model(pretrainewd_path: str,
                 img_size: int, 
@@ -294,6 +295,18 @@ if __name__ == "__main__":
             pbar.update(update_n)
             update_n = 0
     pbar.close()
+
+    # 在 for 循環後增加以下程式碼來將預測錯誤的圖片複製到對應的 error 資料夾
+    for ci, images in wrongs.items():
+        error_folder = os.path.join(args.image_root, cls_folders[ci], "error")
+        os.makedirs(error_folder, exist_ok=True)  # 確保 error 資料夾存在
+        
+        for image_path in images:
+            # 複製圖片到 error 資料夾
+            try:
+                shutil.copy(image_path, error_folder)
+            except Exception as e:
+                print(f"Error copying file {image_path}: {e}")
 
     msg = "\n=== evaluation result on CUB200-2011 ===\n\
 top1: {}%, top3: {}%, top5: {}%, \n\

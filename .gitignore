@@ -161,9 +161,11 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-# Pretrained model
-CUB200-2011/best.pt
-CUB200-2011/config.yaml
+# models
+CUB200-2011-BG/best.pt
+CUB200-2011-BG/config.yaml
+CUB200-2011-NOBG/best.pt
+CUB200-2011-NOBG/config.yaml
 
 # records
 records/
