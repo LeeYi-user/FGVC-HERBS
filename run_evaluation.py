@@ -7,6 +7,7 @@ warnings.simplefilter("ignore")
 import argparse
 import json
 import os
+import shutil
 
 import cv2
 import matplotlib
@@ -23,7 +24,6 @@ from models.pim_module.pim_module_eval import PluginMoodel
 from utils.config_utils import load_yaml
 from vis_utils import ImgLoader
 
-import shutil
 
 def build_model(pretrainewd_path: str,
                 img_size: int, 
@@ -296,11 +296,14 @@ if __name__ == "__main__":
             update_n = 0
     pbar.close()
 
+    for ci, cf in enumerate(cls_folders):
+        error_folder = os.path.join(args.pretrained_root, "error", cf)
+        os.makedirs(error_folder, exist_ok=True)
+
     # 在 for 循環後增加以下程式碼來將預測錯誤的圖片複製到對應的 error 資料夾
     for ci, images in wrongs.items():
-        error_folder = os.path.join(args.image_root, cls_folders[ci], "error")
-        os.makedirs(error_folder, exist_ok=True)  # 確保 error 資料夾存在
-        
+        error_folder = os.path.join(args.pretrained_root, "error", cls_folders[ci])
+
         for image_path in images:
             # 複製圖片到 error 資料夾
             try:
