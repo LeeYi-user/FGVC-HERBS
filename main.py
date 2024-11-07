@@ -5,8 +5,8 @@ import warnings
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import wandb
 
+import wandb
 from data.dataset import build_loader
 from eval import cal_train_metrics, evaluate, suppression
 from models.builder import MODEL_GETTER

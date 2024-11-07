@@ -86,7 +86,7 @@ python vis_swin_l.py -pr ./backups/CUB200-2011/best.pt --image ./imgs/Laysan_Alb
 ## 4. Evaluation
 for CUB200-2011.
 ```
-python run_evaluation.py -pr ./CUB200-2011/ -ir ./CUB200-2011/test/
+python run_evaluation.py -pr ./CUB200-2011-NOBG/ -ir ./CUB200-2011-NOBG/test/
 ```
 
 -pr: pretrained root

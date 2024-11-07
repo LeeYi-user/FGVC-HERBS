@@ -1,10 +1,10 @@
 project_name: FGVC-HERBS
 notes: 'no inverse'
-exp_name: basline
+exp_name: lambda-4
 use_wandb: True
 wandb_entity:
-train_root: ./CUB200-2011/train/
-val_root: ./CUB200-2011/test/
+train_root: ./CUB200-2011-NOBG/train/
+val_root: ./CUB200-2011-NOBG/test/
 data_size: 384
 num_workers: 2
 batch_size: 8
@@ -29,7 +29,7 @@ use_combiner: True
 lambda_b0: 1.375
 lambda_b: 0.3
 lambda_s: 0.0
-lambda_n: 5.0
+lambda_n: 4.0
 lambda_c: 1.0
 update_freq: 4
 log_freq: 100
